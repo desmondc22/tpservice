@@ -38,7 +38,7 @@ First build this application's JAR file on a system that has both Java and Gradl
 
 * Method: POST
 * EndPoint: /transactions
-* Request Body: A JSON array of transaction, with "cmd" key to identify the type of transaction. Please see the command reference below parameters for each type of transactions. ( [Example of transactions](https://github.com/desmondc22/tpservice/blob/master/transactions.json) in JSON)
+* Request Body: A JSON array of transaction, with "cmd" key to identify the type of transaction. Please see the command reference below parameters for each type of transactions. ([Example of transactions](https://github.com/desmondc22/tpservice/blob/master/transactions.json) in JSON)
 * Response: A JSON array of failed and invalid transactions.
 
 Deposit
