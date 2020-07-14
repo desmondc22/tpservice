@@ -6,6 +6,11 @@ public class Withdraw extends Transaction{
     private String accountId;
     private double amount;
 
+    // added it for JUnit testing
+    public Withdraw(){
+        super("WITHDRAW");
+    }
+
     public Withdraw(String cmd){
         super(cmd);
     }

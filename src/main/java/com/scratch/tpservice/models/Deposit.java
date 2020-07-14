@@ -6,6 +6,11 @@ public class Deposit extends Transaction{
     private String accountId;
     private double amount;
 
+    // added it for JUnit testing
+    public Deposit(){
+        super("DEPOSIT");
+    }
+
     public Deposit(String cmd){
         super(cmd);
     }

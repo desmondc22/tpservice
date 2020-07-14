@@ -16,7 +16,7 @@ import java.util.Map;
 public class TransactionsController {
 
     @Autowired
-    TransactionsService transactionService;
+    private TransactionsService transactionService;
 
     @PostMapping(value = "/transactions", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Map<String, Object>> createTransactions(@RequestBody List<Map<String, Object>> transactions) {
@@ -28,8 +28,8 @@ public class TransactionsController {
         // -- convert them back to raw object for JSON
         // -- add it to the list of failedTransactions
 
-        List<Map<String, Object>> invalidJsonTransactions = new ArrayList<Map<String, Object>>();
-        List<Map<String, Object>> validJsonTransactions = new ArrayList<Map<String, Object>>();
+        List<Map<String, Object>> invalidJsonTransactions = new ArrayList<>();
+        List<Map<String, Object>> validJsonTransactions = new ArrayList<>();
 
         for(Map<String, Object> transaction: transactions){
             if (isValid(transaction)) {
@@ -49,7 +49,7 @@ public class TransactionsController {
         return invalidJsonTransactions;
     }
 
-    private List<Transaction> toObjTransactions(List<Map<String, Object>> transactions){
+    public List<Transaction> toObjTransactions(List<Map<String, Object>> transactions){
         List<Transaction> transactionsList = new ArrayList<>();
         for(Map<String, Object> trans : transactions){
             String transactionType = (String) trans.get("cmd");
@@ -88,9 +88,9 @@ public class TransactionsController {
         return transactionsList;
     }
 
-    private List<Map<String, Object>> toJsonTransactions(List<Transaction>  transactions){
+    public List<Map<String, Object>> toJsonTransactions(List<Transaction>  transactions){
         ObjectMapper objMapper = new ObjectMapper();
-        List<Map<String, Object>> jsonTransactions = new ArrayList<Map<String,Object>>();
+        List<Map<String, Object>> jsonTransactions = new ArrayList<>();
 
         for(Transaction transaction : transactions){
             Map<String, Object> transactionObj = objMapper.convertValue(transaction, Map.class);
@@ -99,7 +99,7 @@ public class TransactionsController {
         return jsonTransactions;
     }
 
-    private boolean isValid(Map<String, Object> transaction) {
+    public boolean isValid(Map<String, Object> transaction) {
         if(!transaction.containsKey("cmd")){
             return false;
         }

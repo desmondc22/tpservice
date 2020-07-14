@@ -7,6 +7,11 @@ public class Xfer extends Transaction{
     private String toId;
     private double amount;
 
+    // added it for JUnit testing
+    public Xfer(){
+        super("XFER");
+    }
+
     public Xfer(String cmd){
         super(cmd);
     }
