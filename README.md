@@ -19,7 +19,7 @@ docker build -t tpservice .
 `
 
 `
-docker run -p 8080:8080 docker build -t tpservice .
+docker run -p 8080:8080 tpservice
 `
 
 ### Build and Start the server with Gradle
