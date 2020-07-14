@@ -30,7 +30,7 @@ First build this application's JAR file on a system that has both Java and Gradl
 
 `./gradlew build`
 
-`java -jar build/libs/tpservice-0.0.1.jar`
+`java -jar build/libs/tpservice-0.1.0.jar`
 
 ## Developer Reference
 
